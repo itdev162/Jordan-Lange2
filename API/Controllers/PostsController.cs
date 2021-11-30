@@ -102,5 +102,26 @@ namespace API.Controllers
 
             throw new Exception("Error updating post");
         }
+        [HttpDelete("{id}")]
+
+        public ActionResult<bool> Delete(Guid id)
+        {
+            var post = context.Posts.Find(id);
+
+            if (post == null)
+            {
+                throw new Exception("Could not find post");
+            }
+
+            context.Remove(post);
+
+            var sucess = context.SaveChanges() > 0;
+
+            if (sucess)
+            {
+                return true;
+            }
+            throw new Exception("Error deleting post");
+        }
     }
 }
