@@ -1,9 +1,10 @@
-import React from "react";
+
+import React from 'react';
 
 const Post = props => {
-    const {post} = props;
+    const {post } = props;
 
-    return (
+    return(
         <div>
             <h1>{post.title}</h1>
             <p>{post.body}</p>
@@ -11,4 +12,4 @@ const Post = props => {
     )
 }
 
-export default Post;
+export default Post; 
